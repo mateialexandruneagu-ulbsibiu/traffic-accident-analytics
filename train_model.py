@@ -7,3 +7,25 @@ from sklearn.preprocessing import LabelEncoder
 df = pd.read_csv('data/processed/cleaned_accidents.csv')
 
 encoder = LabelEncoder()
+
+categorical_columns = [
+    'State',
+    'City',
+    'Weather_Condition',
+    'Day',
+    'Month'
+]
+
+for col in categorical_columns:
+    df[col] = encoder.fit_transform(df[col].astype(str))
+
+X = df[[
+    'State',
+    'City',
+    'Weather_Condition',
+    'Visibility(mi)',
+    'Temperature(F)',
+    'Humidity(%)',
+    'Wind_Speed(mph)',
+    'Hour'
+]]
