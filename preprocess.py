@@ -1,8 +1,15 @@
 import pandas as pd
 import numpy as np
 
-file_path = 'data/raw/US_Accidents_March23.csv'
+print("Starting script...")
+
+file_path = r'C:\Users\admin\Desktop\Neagu Matei Big Data Project\traffic-accident-analytics\data\raw\US_Accidents_March23.csv'
+
+print("Reading CSV...")
+
 df = pd.read_csv(file_path)
+
+print("CSV loaded!")
 
 print("Original Shape:", df.shape)
 
@@ -24,6 +31,30 @@ df['Day'] = df['Start_Time'].dt.day_name()
 df['Month'] = df['Start_Time'].dt.month_name()
 
 df['Year'] = df['Start_Time'].dt.year
+
+selected_columns = [
+    'Severity',
+    'State',
+    'City',
+    'Weather_Condition',
+    'Visibility(mi)',
+    'Temperature(F)',
+    'Humidity(%)',
+    'Wind_Speed(mph)',
+    'Hour',
+    'Day',
+    'Month'
+]
+
+cleaned_df = df[selected_columns]
+
+cleaned_df.to_csv(
+    r'C:\Users\admin\Desktop\Neagu Matei Big Data Project\traffic-accident-analytics\data\processed\cleaned_accidents.csv',
+    index=False
+)
+
+print("Cleaned dataset saved successfully.")
+print("Final Shape:", cleaned_df.shape)
 
 selected_columns = [
     'Severity',
