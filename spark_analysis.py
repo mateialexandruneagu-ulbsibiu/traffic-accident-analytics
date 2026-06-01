@@ -6,7 +6,8 @@ print("Starting PySpark Analysis...")
 print("===================================")
 
 spark = SparkSession.builder \
-    .appName("Traffic Accident Analytics") \
+    .master("local[*]") \
+    .appName("Traffic Analytics") \
     .getOrCreate()
 
 print("Spark Session Created.")
@@ -15,11 +16,7 @@ file_path = r'C:\Users\admin\Desktop\Neagu Matei Big Data Project\traffic-accide
 
 print("Loading dataset...")
 
-df = spark.read.csv(
-    file_path,
-    header=True,
-    inferSchema=True
-)
+df = spark.read.option("header", True).csv(file_path)
 
 print("Dataset Loaded.")
 
