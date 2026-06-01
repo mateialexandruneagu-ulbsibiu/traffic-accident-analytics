@@ -1,36 +1,51 @@
 import pandas as pd
+
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report
-from sklearn.preprocessing import LabelEncoder
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import classification_report
 
-df = pd.read_csv('data/processed/cleaned_accidents.csv')
+print("===================================")
+print("Starting Machine Learning...")
+print("===================================")
 
-encoder = LabelEncoder()
+file_path = r'C:\Users\admin\Desktop\Neagu Matei Big Data Project\traffic-accident-analytics\data\processed\cleaned_accidents.csv'
 
-categorical_columns = [
-    'State',
-    'City',
-    'Weather_Condition',
-    'Day',
-    'Month'
-]
+print("Reading dataset...")
 
-for col in categorical_columns:
-    df[col] = encoder.fit_transform(df[col].astype(str))
+df = pd.read_csv(file_path)
 
-X = df[[
-    'State',
-    'City',
-    'Weather_Condition',
+print("Dataset loaded.")
+print("Shape:", df.shape)
+
+
+print("Creating sample...")
+
+df = df.sample(
+    n=100000,
+    random_state=42
+)
+
+print("Sample Shape:", df.shape)
+
+
+features = [
     'Visibility(mi)',
     'Temperature(F)',
     'Humidity(%)',
     'Wind_Speed(mph)',
     'Hour'
-]]
+]
 
-y = df['Severity']
+target = 'Severity'
+
+
+df = df.dropna(subset=features + [target])
+
+X = df[features]
+y = df[target]
+
+print("Preparing train/test split...")
 
 X_train, X_test, y_train, y_test = train_test_split(
     X,
@@ -39,16 +54,41 @@ X_train, X_test, y_train, y_test = train_test_split(
     random_state=42
 )
 
+print("Training Random Forest...")
+
 model = RandomForestClassifier(
     n_estimators=100,
-    random_state=42
+    random_state=42,
+    n_jobs=-1
 )
 
 model.fit(X_train, y_train)
 
+print("Model trained.")
+
+
 predictions = model.predict(X_test)
 
-accuracy = accuracy_score(y_test, predictions)
+accuracy = accuracy_score(
+    y_test,
+    predictions
+)
 
-print("Model Accuracy:", accuracy)
-print(classification_report(y_test, predictions))
+print("===================================")
+print("Accuracy:", round(accuracy * 100, 2), "%")
+print("===================================")
+
+print("\nClassification Report:\n")
+
+print(
+    classification_report(
+        y_test,
+        predictions
+    )
+)
+
+print("===================================")
+print("Training Complete")
+print("===================================")
+
+input("Press Enter to exit...")
