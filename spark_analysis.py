@@ -1,28 +1,53 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import avg, count
+from pyspark.sql.functions import count, avg
+
+print("===================================")
+print("Starting PySpark Analysis...")
+print("===================================")
 
 spark = SparkSession.builder \
-    .appName("Traffic Accident Analysis") \
+    .appName("Traffic Accident Analytics") \
     .getOrCreate()
 
-spark_df = spark.read.csv(
-    'data/processed/cleaned_accidents.csv',
+print("Spark Session Created.")
+
+file_path = r'C:\Users\admin\Desktop\Neagu Matei Big Data Project\traffic-accident-analytics\data\processed\cleaned_accidents.csv'
+
+print("Loading dataset...")
+
+df = spark.read.csv(
+    file_path,
     header=True,
     inferSchema=True
 )
 
-spark_df.printSchema()
+print("Dataset Loaded.")
 
-state_accidents = spark_df.groupBy('State') \
-    .agg(count('*').alias('Accident_Count')) \
-    .orderBy('Accident_Count', ascending=False)
+print("Rows:", df.count())
+print("Columns:", len(df.columns))
 
-state_accidents.show(10)
+print("===================================")
+print("Top States by Accident Count")
+print("===================================")
 
-weather_analysis = spark_df.groupBy('Weather_Condition') \
-    .agg(avg('Severity').alias('Average_Severity')) \
-    .orderBy('Average_Severity', ascending=False)
+df.groupBy("State") \
+    .agg(count("*").alias("Accident_Count")) \
+    .orderBy("Accident_Count", ascending=False) \
+    .show(10)
 
-weather_analysis.show(10)
+print("===================================")
+print("Average Severity by Weather")
+print("===================================")
+
+df.groupBy("Weather_Condition") \
+    .agg(avg("Severity").alias("Average_Severity")) \
+    .orderBy("Average_Severity", ascending=False) \
+    .show(10)
+
+print("===================================")
+print("PySpark Analysis Complete")
+print("===================================")
+
+input("Press Enter to exit...")
 
 spark.stop()
