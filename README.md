@@ -65,5 +65,23 @@ An interactive Tableau dashboard was created to visualize:
 - Accident frequency peaks during commuting hours.
 - Weather conditions influence accident severity.
 
+## Installation & Usage
+
+### Prerequisites
+
+Make sure you have installed:
+
+- Python 3.10+
+- Java 17 (required for PySpark)
+- Git
+- Tableau Public/Desktop
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/YOUR_USERNAME/traffic-accident-analytics.git
+cd traffic-accident-analytics
+```
+
 ## Author
 Matei Neagu
