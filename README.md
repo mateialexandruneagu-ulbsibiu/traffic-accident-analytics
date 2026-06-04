@@ -3,6 +3,10 @@
 ## Project Overview
 This project analyzes over 7.7 million traffic accident records from the US Accidents dataset. The goal is to identify accident patterns, explore contributing factors, and predict accident severity using machine learning.
 
+## Data Source
+The sample data used for testing and demonstrating the Hospital Management System was based on publicly available healthcare datasets obtained from Kaggle. The data was adapted and simplified to fit the database schema and project requirements.
+https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents
+
 ## Technologies Used
 - Python
 - Pandas
