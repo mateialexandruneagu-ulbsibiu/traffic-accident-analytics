@@ -1,8 +1,8 @@
 import os
 import pandas as pd
 
-input_file = r'C:\Users\admin\Desktop\Neagu Matei Big Data Project\traffic-accident-analytics\data\raw\US_Accidents_March23.csv'
-output_file = r'C:\Users\admin\Desktop\Neagu Matei Big Data Project\traffic-accident-analytics\data\processed\cleaned_accidents.csv'
+input_file = r'data/raw/US_Accidents_March23.csv'
+output_file = r'data/processed/cleaned_accidents.csv'
 
 print("Loading dataset...")
 
