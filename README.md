@@ -83,7 +83,7 @@ Make sure you have installed:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/traffic-accident-analytics.git
+git clone https://github.com/mateialexandruneagu-ulbsibiu/traffic-accident-analytics
 cd traffic-accident-analytics
 ```
 
