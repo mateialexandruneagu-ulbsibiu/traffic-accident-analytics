@@ -7,9 +7,9 @@ print("===================================")
 print("Starting EDA...")
 print("===================================")
 
-input_file = r'C:\Users\admin\Desktop\Neagu Matei Big Data Project\traffic-accident-analytics\data\processed\cleaned_accidents.csv'
+input_file = r'data/processed/cleaned_accidents.csv'
 
-screenshots_folder = r'C:\Users\admin\Desktop\Neagu Matei Big Data Project\traffic-accident-analytics\screenshots'
+screenshots_folder = r'traffic-accident-analytics/screenshots'
 
 print("Checking dataset location...")
 
