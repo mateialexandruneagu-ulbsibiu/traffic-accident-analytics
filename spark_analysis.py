@@ -12,7 +12,7 @@ spark = SparkSession.builder \
 
 print("Spark Session Created.")
 
-file_path = r'C:\Users\admin\Desktop\Neagu Matei Big Data Project\traffic-accident-analytics\data\processed\cleaned_accidents.csv'
+file_path = r'data\processed\cleaned_accidents.csv'
 
 print("Loading dataset...")
 
