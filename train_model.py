@@ -9,7 +9,7 @@ print("===================================")
 print("Starting Machine Learning...")
 print("===================================")
 
-file_path = r'C:\Users\admin\Desktop\Neagu Matei Big Data Project\traffic-accident-analytics\data\processed\cleaned_accidents.csv'
+file_path = r'data\processed\cleaned_accidents.csv'
 
 print("Reading dataset...")
 
