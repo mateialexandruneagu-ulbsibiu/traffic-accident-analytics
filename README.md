@@ -87,5 +87,14 @@ git clone https://github.com/mateialexandruneagu-ulbsibiu/traffic-accident-analy
 cd traffic-accident-analytics
 ```
 
+# Conference Presentation
+
+The project was presented at ADEConf 2026 – Advancing Digital Education: Content, Context and Artificial Intelligence, organized by the Faculty of Philosophy, University of Novi Sad, Serbia, on 12–14 November 2026.
+
+The presentation, titled "Learning from Real-World Data: Traffic Accident Analytics as an Applied Case Study in Digital Education", explored how big data analytics, machine learning, and interactive visualization can support practical learning experiences and connect technology with real-world problems.
+
+The presentation highlighted the educational potential of combining authentic datasets, scalable data processing, artificial intelligence, and data visualization to encourage critical thinking and digital literacy.
+
+
 ## Author
-Matei Neagu
+Matei-Alexandru Neagu
